@@ -13,7 +13,7 @@ for(const file of commandFiles) {
     client.commands.set(commandN.name, commandN);
 }
 
-client.login(config.token);
+client.login(process.env.BOT_TOKEN);
 
 client.once('ready', () => {
     console.log('Ready!');
