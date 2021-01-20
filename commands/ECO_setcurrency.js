@@ -3,18 +3,18 @@ const db = require(`quick.db`);
 const pfix = new db.table("prefix");
 
 module.exports = {
-    name: 'setprefix',
-    alias: ["setp"],
-    description: 'Ustawia prefix bota.',
-    usage: `${pfix.get('prefix')}setprefix <nowy prefix>`,
+    name: 'setcurrency',
+    alias: ["setcurr,setc"],
+    description: 'Ustawia walutę serwera.',
+    usage: `${pfix.get('prefix')}setcurrency <nowy waluta>`,
     permission: ["ADMINISTRATOR"],
-    type: "utility",
+    type: "economy",
     run: async (message, args) => {
         if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("```Nie masz uprawnień, aby użyć tej komendy!```");
         if(!args[0]) return;
-        pfix.delete("prefix");
-        pfix.push("prefix", args[0]);
-        message.channel.send("```Nowy prefix to: "+pfix.get('prefix')+"```");
+        pfix.delete("currency");
+        pfix.push("currency", args[0]);
+        message.channel.send("```Nowy waluta to: "+pfix.get('currency')+"```");
         
 
     },

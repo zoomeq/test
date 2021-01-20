@@ -6,7 +6,7 @@ module.exports = {
     name: 'createitem',
     alias: ["citem","createit"],
     description: 'Pozwala stworzyć przedmiot.',
-    usage: `${pfix.all()[0].data[0]}createitem <sklep> <nazwa> <cena> (ilość)`,
+    usage: `${pfix.get('prefix')}createitem <sklep> <nazwa> <cena> (ilość)`,
     permission: ["ADMINISTRATOR"],
     type: "economy",
     run: async (message, args) => {
@@ -33,6 +33,6 @@ module.exports = {
             quantity: quantityS
         };
         shop.push(nameS, item);
-        message.channel.send("```Nazwa: "+nameS+"\n Cena: "+priceS+"\nIlość: "+quantityS+"```");
+        message.channel.send("```Nazwa: "+nameS+"\n Cena: "+priceS+pfix.get('currency')+"\nIlość: "+quantityS+"```");
     },
 };

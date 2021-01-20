@@ -6,7 +6,7 @@ module.exports = {
     name: 'deleteitem',
     alias: ["ditem","delit","delitem"],
     description: 'Usuwanie przedmiotu ze sklepu.',
-    usage: `${pfix.all()[0].data[0]}deleteitem <sklep> <nazwa>`,
+    usage: `${pfix.get('prefix')}deleteitem <sklep> <nazwa>`,
     permission: ["ADMINISTRATOR"],
     type: "economy",
     run: async (message, args) => {

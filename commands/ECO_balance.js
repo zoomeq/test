@@ -8,7 +8,7 @@ module.exports = {
     name: 'balance',
     alias: ["bal"],
     description: 'Pokazuje aktualne saldo użytkownika.',
-    usage: `${pfix.all()[0].data[0]}balance (@osoba)`,
+    usage: `${pfix.get('prefix')}balance (@osoba)`,
     permission: ["NULL"],
     type: "economy",
     run: async (message, args) =>{
@@ -40,17 +40,17 @@ module.exports = {
         embed.addFields(
             {
                 name: `Portfel`,
-                value: cash + pfix.all()[1].data[0],
+                value: cash + pfix.get('currency'),
                 inline: true
             },
             {
                 name: `Bank`,
-                value: bank + pfix.all()[1].data[0],
+                value: bank + pfix.get('currency'),
                 inline: true
             },
             {
                 name: `Razem`,
-                value: [cash+bank] + pfix.all()[1].data[0],
+                value: [cash+bank] + pfix.get('currency'),
                 inline: true
             }
         );

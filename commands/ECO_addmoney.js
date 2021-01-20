@@ -7,7 +7,7 @@ module.exports = {
     name: 'addmoney',
     alias: ["addm","addmon"],
     description: 'Dodaje pieniądze użytkownikowi.',
-    usage: `${pfix.all()[0].data[0]}addmoney <@osoba> <cash/bank> <kwota>`,
+    usage: `${pfix.get('prefix')}addmoney <@osoba> <cash/bank> <kwota>`,
     permission: ["ADMINISTRATOR"],
     type: "economy",
     run: async (message, args) =>{
@@ -23,7 +23,7 @@ module.exports = {
         }else{
             db.add(`bank_${user.id}`, parseInt(args[2]));
         }
-        message.channel.send("```Dodano: "+parseInt(args[2])+pfix.all()[1].data[0]+" do salda użytkownika: "+user.displayName+"```");
+        message.channel.send("```Dodano: "+parseInt(args[2])+pfix.get('currency')+" do salda użytkownika: "+user.displayName+"```");
         
 
     },

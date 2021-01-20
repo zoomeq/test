@@ -8,7 +8,7 @@ const pfix = new db.table("prefix");
 module.exports = {
     name: 'shop',
     description: 'Wyświetla przedmioty znajdujące się w sklepie.',
-    usage: `${pfix.all()[0].data[0]}shop `,
+    usage: `${pfix.get('prefix')}shop `,
     permission: ["NULL"],
     type: "economy",
     run: async (message, args) =>{
@@ -41,7 +41,7 @@ module.exports = {
         let tabq1 = [];
         for(let i=0; i<shopmon.all().length; i++){
             tabt1[i] = arr1[i].find(t => t.name).name;
-            tabp1[i] = arr1[i].find(t => t.name).price + pfix.all()[1].data[0];
+            tabp1[i] = arr1[i].find(t => t.name).price + pfix.get('currency');
             tabq1[i] = arr1[i].find(t => t.name).quantity
         }
         embed.addFields(
@@ -64,6 +64,7 @@ module.exports = {
         embed.setTitle("Monopolowy");
         message.channel.send(embed);
         embed.spliceFields(0, 3);
+        
 
         let arr2 = [];
         for(let i=0; i<shopmac.all().length; i++){
@@ -74,7 +75,7 @@ module.exports = {
         let tabq2 = [];
         for(let i=0; i<shopmac.all().length; i++){
             tabt2[i] = arr2[i].find(t => t.name).name;
-            tabp2[i] = arr2[i].find(t => t.name).price + pfix.all()[1].data[0];
+            tabp2[i] = arr2[i].find(t => t.name).price + pfix.get('currency');
             tabq2[i] = arr2[i].find(t => t.name).quantity
         }
         embed.addFields(
@@ -107,7 +108,7 @@ module.exports = {
         let tabq3 = [];
         for(let i=0; i<shopbr.all().length; i++){
             tabt3[i] = arr3[i].find(t => t.name).name;
-            tabp3[i] = arr3[i].find(t => t.name).price + pfix.all()[1].data[0];
+            tabp3[i] = arr3[i].find(t => t.name).price + pfix.get('currency');
             tabq3[i] = arr3[i].find(t => t.name).quantity
         }
         embed.addFields(
@@ -144,7 +145,7 @@ module.exports = {
         let tabq = [];
         for(let i=0; i<shop.all().length; i++){
             tabt[i] = arr[i].find(t => t.name).name;
-            tabp[i] = arr[i].find(t => t.name).price + pfix.all()[1].data[0];
+            tabp[i] = arr[i].find(t => t.name).price + pfix.get('currency');
             tabq[i] = arr[i].find(t => t.name).quantity
         }
         embed.addFields(

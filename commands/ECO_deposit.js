@@ -7,7 +7,7 @@ module.exports = {
     name: 'deposit',
     alias: ["dep"],
     description: 'Wpłacenie pieniędzy do banku.',
-    usage: `${pfix.all()[0].data[0]}deposit <kwota/all>`,
+    usage: `${pfix.get('prefix')}deposit <kwota/all>`,
     permission: ["NULL"],
     type: "economy",
     run: async (message, args) =>{
@@ -19,13 +19,13 @@ module.exports = {
         if(args[0] === 'all'){
             db.add(`cash_${user.id}`, -parseInt(cash));
             db.add(`bank_${user.id}`, parseInt(cash));
-            return message.channel.send("```Wpłacono: "+cash+pfix.all()[1].data[0]+"```");
+            return message.channel.send("```Wpłacono: "+cash+pfix.get('currency')+"```");
         }else if(parseInt(args[0]) > cash){
             return message.channel.send("```Nie masz wystarczających środków w portfelu!```");
         }else{
             db.add(`cash_${user.id}`, -parseInt(args[0]));
             db.add(`bank_${user.id}`, parseInt(args[0]));
-            return message.channel.send("```Wpłacono: "+parseInt(args[0])+pfix.all()[1].data[0]+"```");
+            return message.channel.send("```Wpłacono: "+parseInt(args[0])+pfix.get('currency')+"```");
         };
     },
 };
