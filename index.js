@@ -33,6 +33,7 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+    if(message.content.toString().replace(`<@`, '').replace(`>`, '').replace(`!`, '') === "764514899966689280") return message.channel.send("```Mój prefix to: "+pfix.get(`prefix`)+"```")
 if(message.channel.type == "dm" || message.author.bot || !message.content.toLowerCase().startsWith(pfix.get('prefix'))) return;
 
 var args = message.content.slice(pfix.get('prefix').length).trim().split(/ +/);
