@@ -6,7 +6,7 @@ module.exports = {
     name: 'setcurrency',
     alias: ["setcurr,setc"],
     description: 'Ustawia walutę serwera.',
-    usage: `${pfix.get('currency')}setcurrency <nowy waluta>`,
+    usage: `${pfix.get('prefix')}setcurrency <nowy waluta>`,
     permission: ["ADMINISTRATOR"],
     type: "economy",
     run: async (message, args) => {
